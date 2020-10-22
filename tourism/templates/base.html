@@ -242,9 +242,11 @@
             <div class="find-form no-padding col-xs-12 col-md-6">
                 <div>
                     <h4 class="ff_subtitle">Your getaway to the Heart of Afrika!</h4>
-                    <h2 class="ff_title">{{page.lead_text}}</h2>
+                    {% if page.lead_text %}
+                       <h2 class="ff_title">{{page.lead_text}}</h2>
+                    {% endif %}
                     <div class="ff_text">Burundi Tour is a travel agency and a tour operator that strives to offer the most memorable moments to lovers of African adventures. Burundi Tour is located in Bujumbura-Burundi and operates across the national territory.
-                      <a href="#" class="c-button bg-white"><span>view more</span></a></div>
+                      <a href="{{page.button.url}}" class="btn btn-light btn-lg"><span>{{page.button_text}}</span></a></div>
 
                     <div class="form-block clearfix">
                         <div class="form-label color-white">Your preferred Tour</div>
@@ -335,7 +337,7 @@
                             <div class="tour-item">
                                 <div class="radius-top">
                                     <img src="https://source.unsplash.com/random/194x191" alt="">
-                                    <div class="tour-weather"><img src="{% static "img/weather_icon_small_blue.png" %}" alt="">+34<span class="sup">o</span>C</div>
+                                    <div class="tour-weather"><img src="{% static "img/weather_icon_small_blue.png" %}" alt="">+29<span class="sup">o</span>C</div>
                                 </div>
                                 <div class="tour-desc bg-white">
                                     <h4><a class="tour-title color-dark-2 link-blue" href="#">Kinindo</a></h4>
@@ -529,16 +531,16 @@
     </div>
 
     <div class="map-block">
-      <div id="map-canvas" data-lat="3.3614" data-lng="29.3599" data-zoom="10" data-style="1"></div>
+      <div id="map-canvas" data-lng="3.3614" data-lat="29.3599" data-zoom="10" data-style="1"></div>
           <div class="addresses-block">
-              <a data-lat="33.770242" data-lng="-118.193759" data-string="Santa Monica Hotel"></a>
-              <a data-lat="34.018454" data-lng="-118.493610" data-string="Long Beach Hotel"></a>
-              <a data-lat="33.949145" data-lng="-118.242369" data-string="Florence-Graham Hotel"></a>
-              <a data-lat="34.026421" data-lng="-117.960631" data-string="Industry Hotel"></a>
-              <a data-lat="33.97836" data-lng="-117.619659" data-string="Chino Hotel"></a>
-              <a data-lat="33.662319" data-lng="-117.589399" data-string="Trabuco Hotel"></a>
-              <a data-lat="33.521296" data-lng="-117.701621" data-string="Laguna Hotel"></a>
-              <a data-lat="33.387962" data-lng="-118.419819" data-string="Santa Catalina Hotel"></a>
+              <a data-lat="29.770242" data-lng="3.193759" data-string="Santa Monica Hotel"></a>
+              <a data-lat="29.018454" data-lng="3.493610" data-string="Long Beach Hotel"></a>
+              <a data-lat="29.949145" data-lng="3.242369" data-string="Florence-Graham Hotel"></a>
+              <a data-lat="29.026421" data-lng="3.960631" data-string="Industry Hotel"></a>
+              <a data-lat="29.97836" data-lng="3.619659" data-string="Chino Hotel"></a>
+              <a data-lat="29.662319" data-lng="3.589399" data-string="Trabuco Hotel"></a>
+              <a data-lat="29.521296" data-lng="3.701621" data-string="Laguna Hotel"></a>
+              <a data-lat="29.387962" data-lng="3.419819" data-string="Santa Catalina Hotel"></a>
           </div>
           <div class="map-form">
             <div class="container">
@@ -972,7 +974,7 @@
                      <h6>Contact Info</h6>
                        <div class="contact-info">
                         <div class="contact-line color-grey-3"><i class="fa fa-map-marker"></i><span>Aenean vulputate porttitor</span></div>
-                        <div class="contact-line color-grey-3"><i class="fa fa-phone"></i><a href="tel:93123456789">+93 123 456 789</a></div>
+                        <div class="contact-line color-grey-3"><i class="fa fa-phone"></i><a href="tel:93122956789">+93 123 456 789</a></div>
                         <div class="contact-line color-grey-3"><i class="fa fa-envelope-o"></i><a href="mailto:">letstravel@mail.com</a></div>
                         <div class="contact-line color-grey-3"><i class="fa fa-globe"></i><a href="#">let’s_travel@world.com</a></div>
 
