@@ -123,3 +123,4 @@ media/
 requirements_local.txt
 *.sql
 *.sublime-*
+local.py
