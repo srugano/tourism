@@ -20,16 +20,9 @@
         <link rel="shortcut icon" href="favicon.ico"/>
 
         {# Global stylesheets #}
-        <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet" type="text/css"/>
-        <link href="{% static "css/jquery-ui.structure.min.css" %}" rel="stylesheet" type="text/css"/>
-        <link href="{% static "css/jquery-ui.min.css" %}" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/tourism.css' %}">
-
-        <link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css"/>
+        {% include "stylesheets.html" %}
         {% block extra_css %}
         {% endblock %}
-        {% include "javascripts.html" %}
     </head>
 
     <body class="{% block body_class %}no-overflow{% endblock %}" data-color="theme-2">
@@ -1005,17 +998,7 @@
     </footer>
 
         {# Global javascript #}
-        <script type="text/javascript" src="{% static "js/jquery-2.1.4.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/jquery-ui.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/idangerous.swiper.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/jquery.viewportchecker.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/isotope.pkgd.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/jquery.mousewheel.min.js" %}"></script>
-           <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;language=en"></script>
-        <script type="text/javascript" src="{% static "js/map.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/all.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/tourism.js" %}"></script>
+        {% include "javascripts.html" %}
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
