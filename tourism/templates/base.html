@@ -26,7 +26,6 @@
     </head>
 
     <body class="{% block body_class %}no-overflow{% endblock %}" data-color="theme-2">
-        {% wagtailuserbar %}
     <div class="loading blue">
       <div class="loading-center">
           <div class="loading-center-absolute">
@@ -38,38 +37,14 @@
       </div>
     </div>
 
-    <header class="color-1 hovered menu-3">
-      <div class="container">
-        <div class="row">
-           <div class="col-md-12">
-              <div class="nav">
-              <a href="/" class="logo">
-                  <img src="{% static "img/theme-4/logo_dark.png" %}" alt="lets travel">
-              </a>
-              <div class="nav-menu-icon">
-                <a href="#"><i></i></a>
-              </div>
-              <nav class="menu">
-                  <ul>
-                      <li class="type-1 active">
-                          <a href="#">{{ page.title }}<span class="fa fa-angle-down"></span></a>
-                          <ul class="dropmenu">
-                          </ul>
-                      </li>
-                  </ul>
-             </nav>
-             </div>
-           </div>
-        </div>
-      </div>
-    </header>
+    {% include "include/header.html" %}
 
     <!-- TOP BANNER -->
     {% block content %}{% endblock %}
 
 
 
-    {% include "footer.html" %}
+    {% include "include/footer.html" %}
 
         {# Global javascript #}
         {% include "javascripts.html" %}

@@ -3,3 +3,4 @@ wagtail>=2.8,<2.9
 pre-commit
 gunicorn
 psycopg2-binary
+django-extensions
