@@ -1,22 +1,25 @@
-{% load static %}
+{% load static menu_tags %}
+{% get_menu "main-menu" as navigation %}
 <header class="color-1 hovered menu-3">
       <div class="container">
         <div class="row">
            <div class="col-md-12">
               <div class="nav">
               <a href="/" class="logo">
-                  <img src="{% static "img/theme-4/Burundi_Tour_200x200_logo.png" %}" alt="lets travel">
+                  <img src="{% static "img/theme-4/Burundi_Tour_200x200_logo.png" %}" alt="Burundi Tour">
               </a>
               <div class="nav-menu-icon">
                 <a href="#"><i></i></a>
               </div>
               <nav class="menu">
                   <ul>
+                    {% for item in navigation.menu_items.all %}
                       <li class="type-1 active">
-                          <a href="#">{{ page.title }}<span class="fa fa-angle-down"></span></a>
+                          <a href="{{ item.link }}" {% if item.open_in_new_tab %}target="_blank"{% endif %}>{{ item.title }}<span class="fa fa-angle-down"></span></a>
                           <ul class="dropmenu">
                           </ul>
                       </li>
+                      {% endfor %}
                   </ul>
              </nav>
              </div>
