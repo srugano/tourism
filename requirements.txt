@@ -4,3 +4,4 @@ pre-commit
 gunicorn
 psycopg2-binary
 django-extensions
+django-widget-tweaks

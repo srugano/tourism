@@ -1,7 +1,7 @@
 {% load static wagtailuserbar %}
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <title>
@@ -17,9 +17,10 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <meta name="format-detection" content="telephone=no" />
-        <link rel="shortcut icon" href="favicon.ico"/>
+        <link rel="shortcut icon" href="{% static "favicon.ico" %}"/>
 
         {# Global stylesheets #}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         {% include "stylesheets.html" %}
         {% block extra_css %}
         {% endblock %}
@@ -39,15 +40,16 @@
 
     {% include "include/header.html" %}
 
-    <!-- TOP BANNER -->
-    {% block content %}{% endblock %}
+    {% block banner %}{% endblock banner %}
+    {% block content %}{% endblock content %}
 
 
 
     {% include "include/footer.html" %}
 
-        {# Global javascript #}
-        {% include "javascripts.html" %}
+    {# Global javascript #}
+    {% include "javascripts.html" %}
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}

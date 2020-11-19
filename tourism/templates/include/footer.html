@@ -1,11 +1,13 @@
-{% load static %}
+{% load static menu_tags wagtailcore_tags cache %}
+{% get_menu "main-menu" as navigation %}
+
 <footer class="bg-dark type-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="footer-block">
                         <img src="{% static "img/theme-4/logo.png" %}" alt="" class="logo-footer">
-                        <div class="f_text color-grey-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  magna aliqua. Ut aliquip ex ea commodo consequat.</div>
+                        <div class="f_text color-grey-7">Ecotourism is one of the major areas of tourism in Burundi. Kibira National Park, Rurubu River and Lake Tanganyika are considered major natural habitats for wildlife.</div>
                         <div class="footer-share">
                             <a href="https://www.facebook.com/burunditour"><span class="fa fa-facebook"></span></a>
                             <a href="#"><span class="fa fa-twitter"></span></a>
