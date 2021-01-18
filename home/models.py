@@ -1,5 +1,6 @@
 from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
+from wagtail.core.fields import RichTextField
 from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 
@@ -34,3 +35,9 @@ class HomePage(Page):
         FieldPanel("button_text"),
         ImageChooserPanel("banner_background_image"),
     ]
+
+
+class LongTextPage(Page):
+    text_field = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [FieldPanel("text_field", classname="full")]
