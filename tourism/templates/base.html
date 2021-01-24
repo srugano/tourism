@@ -1,4 +1,5 @@
 {% load static wagtailuserbar %}
+{% load menu_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +39,39 @@
       </div>
     </div>
 
-    {% include "include/header.html" %}
+    {# include "include/header.html" #}
+    <header class="color-1 hovered menu-3">
+      <div class="container">
+        <div class="row">
+           <div class="col-md-12">
+              <div class="navbar navbar-expand-lg navbar-light bg-transparent">
+              <a href="/" class="navbar-brand logo">
+                  <img src="{% static "img/theme-4/Burundi_Tour_200x200_logo.png" %}" alt="lets travel">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- <div class="nav-menu-icon">
+                <a href="#"><i></i></a>
+              </div> -->
+              <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
+                {% main_menu template="menus/bootstrap4/main_menu_dropdown.html" %}
+                <!-- <ul>
+                    <li class="type-1 active">
+                        <a href="#">{{ page.title }}<span class="fa fa-angle-down"></span></a>
+                        <ul class="dropmenu">
+                        </ul>
+                    </li>
+                </ul> -->
+             </div>
+             </div>
 
+
+
+           </div>
+        </div>
+      </div>
+    </header>
     {% block banner %}{% endblock banner %}
     {% block content %}{% endblock content %}
 
