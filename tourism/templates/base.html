@@ -1,4 +1,5 @@
 {% load static wagtailuserbar %}
+{% load menu_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -42,23 +43,30 @@
       <div class="container">
         <div class="row">
            <div class="col-md-12">
-              <div class="nav">
-              <a href="/" class="logo">
+              <div class="navbar navbar-expand-lg navbar-light bg-transparent">
+              <a href="/" class="navbar-brand logo">
                   <img src="{% static "img/theme-4/logo_dark.png" %}" alt="lets travel">
               </a>
-              <div class="nav-menu-icon">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <!-- <div class="nav-menu-icon">
                 <a href="#"><i></i></a>
-              </div>
-              <nav class="menu">
-                  <ul>
-                      <li class="type-1 active">
-                          <a href="#">{{ page.title }}<span class="fa fa-angle-down"></span></a>
-                          <ul class="dropmenu">
-                          </ul>
-                      </li>
-                  </ul>
-             </nav>
+              </div> -->
+              <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
+                {% main_menu template="menus/bootstrap4/main_menu_dropdown.html" %}
+                <!-- <ul>
+                    <li class="type-1 active">
+                        <a href="#">{{ page.title }}<span class="fa fa-angle-down"></span></a>
+                        <ul class="dropmenu">
+                        </ul>
+                    </li>
+                </ul> -->
              </div>
+             </div>
+
+
+
            </div>
         </div>
       </div>
