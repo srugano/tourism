@@ -98,6 +98,11 @@ class HomePage(Page):
         StreamFieldPanel("body"),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["tours"] = TourPage.objects.live().public()
+        return context
+
 
 class LongTextPage(Page):
     text_field = RichTextField(blank=True)
@@ -143,6 +148,27 @@ class TourPage(Page):
         related_name="+",
         help_text="The main picture for the tour",
         on_delete=models.SET_NULL,
+    )
+    body = StreamField(
+        [
+            ("title", blocks.TitleBlock()),
+            ("cards", blocks.CardBlock()),
+            ("image_and_text", blocks.ImageAndTextBlock()),
+            ("cta", blocks.CallToActionBlock()),
+            (
+                "testimonial",
+                SnippetChooserBlock(
+                    target_model="testimonials.Testimonial",
+                    template="streams/testimonial_block.html",
+                ),
+            ),
+            (
+                "pricing_table",
+                blocks.PricingTableBlock(table_options=NEW_TABLE_OPTIONS),
+            ),
+        ],
+        null=True,
+        blank=True,
     )
 
     content_panels = Page.content_panels + [
