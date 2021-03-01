@@ -9,6 +9,7 @@ from wagtail.core.fields import StreamField, RichTextField
 from wagtail.core.models import Page
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.snippets.blocks import SnippetChooserBlock
+from wagtail.core.blocks import RichTextBlock
 
 from modelcluster.fields import ParentalKey, ParentalManyToManyField
 from streams import blocks
@@ -98,6 +99,11 @@ class HomePage(Page):
         StreamFieldPanel("body"),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        context["tours"] = TourPage.objects.live().public()
+        return context
+
 
 class LongTextPage(Page):
     text_field = RichTextField(blank=True)
@@ -135,7 +141,7 @@ class CardsPage(Page):
 
 class TourPage(Page):
     # Add other things after
-    text_field = RichTextField(blank=True)
+    short_description = RichTextField(blank=True)
     main_picture = models.ForeignKey(
         "wagtailimages.Image",
         blank=True,
@@ -144,8 +150,35 @@ class TourPage(Page):
         help_text="The main picture for the tour",
         on_delete=models.SET_NULL,
     )
+    body = StreamField(
+        [
+            ("title", blocks.TitleBlock()),
+            ("rich_text", RichTextBlock()),
+            ("cards", blocks.CardBlock()),
+            ("image_and_text", blocks.ImageAndTextBlock()),
+            ("cta", blocks.CallToActionBlock()),
+            (
+                "testimonial",
+                SnippetChooserBlock(
+                    target_model="testimonials.Testimonial",
+                    template="streams/testimonial_block.html",
+                ),
+            ),
+            (
+                "pricing_table",
+                blocks.PricingTableBlock(table_options=NEW_TABLE_OPTIONS),
+            ),
+        ],
+        null=True,
+        blank=True,
+    )
+    duration = models.CharField(
+        max_length=140, blank=True, help_text="The duration. eg: 2 days"
+    )
 
     content_panels = Page.content_panels + [
-        FieldPanel("text_field", classname="full"),
+        FieldPanel("short_description", classname="full"),
         ImageChooserPanel("main_picture"),
+        FieldPanel("duration"),
+        StreamFieldPanel("body"),
     ]
