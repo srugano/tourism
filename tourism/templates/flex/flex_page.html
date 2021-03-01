@@ -1,16 +1,42 @@
 
 {% extends "base.html" %}
-{% load wagtailcore_tags %}
 
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h1 class="cc-inner-title">{{ page.title }}</h1>
+
+<!-- INNER-BANNER -->
+<div class="inner-banner style-6">
+  <img class="center-image" src="{% static 'img/inner/bg_3.jpg' %}" alt="">
+  <div class="vertical-align">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <ul class="banner-breadcrumb color-white clearfix">
+              <li><a class="link-blue-2" href="/">home</a> /</li>
+              <!-- <li><a class="link-blue-2" href="#">pages</a> /</li> -->
+              <li><span>{{ page.title }}</span></li>
+            </ul>
+            <h2 class="color-white">{{ page.title }}</h2>
+          </div>
+      </div>
     </div>
   </div>
+</div>
 
-  {% for block in page.body %}
+
+<!-- ICON-BLOCK -->
+<div class="main-wraper padd-90 meet-team">
+  <div class="container">
+
+    <div class="text-justify mt-5">
+      {% for block in page.body %}
     {% include_block block %}
   {% endfor %}
-{% endblock content %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}
