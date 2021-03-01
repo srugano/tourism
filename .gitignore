@@ -124,3 +124,6 @@ requirements_local.txt
 *.sql
 *.sublime-*
 local.py
+
+static
+gunicorn_start
