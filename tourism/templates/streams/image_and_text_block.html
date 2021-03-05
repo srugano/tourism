@@ -46,7 +46,7 @@
       {% endif %}
         <picture>
           {% image self.image fill-786x552 as img %}
-          <img src="{{ img.url }}" alt="{{ img.alt }}" style='width: 100%; height: auto;'>
+          <img src="{{ img.url }}" alt="{{ img.alt }}" class="img-fluid rounded-left" style=' height: auto;'>
         </picture>
       {% if self.link.url %}
         </a>
@@ -54,7 +54,7 @@
     </div>
     {% endif %}
     <div class="col-sm-8">
-      <div style='background-image: url("{% static 'images/grey-pattern.png' %}")'>
+      <div class="p-3 h-100 {% if self.image_alignment == 'left' %}rounded-right{% else %}rounded-left{% endif %}" style='background-image: url("{% static 'images/grey-pattern.png' %}")'>
         <h3 class="cc-iat-title">{{ self.title }}</h3>
         {% if self.text %}
           <p class="cc-iat-text">
@@ -76,7 +76,7 @@
       {% endif %}
         <picture>
           {% image self.image fill-786x552 as img %}
-          <img src="{{ img.url }}" alt="{{ img.alt }}" style='width: 100%; height: auto;'>
+          <img src="{{ img.url }}" alt="{{ img.alt }}" class="img-fluid rounded-right" style='height: auto;'>
         </picture>
       {% if self.link.url %}
         </a>
