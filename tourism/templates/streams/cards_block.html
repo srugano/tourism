@@ -1,10 +1,10 @@
 {% load wagtailimages_tags %}
 
 <!-- Cards Block -->
-<div class="row justify-content-center">
+<div class="row mt-5 justify-content-center">
   {% for card in self.cards %}
-    <div class="col-md-6 d-flex align-items-stretch{% if not forloop.first %} mt-4 mt-md-0{% endif %}">
-      <div class="card mb-3 text-center">
+    <div class="col-md-3 d-flex align-items-stretch{% if not forloop.first %} mt-4 mt-md-0{% endif %}">
+      <div class="card w-100 mb-3 text-center">
         {% if card.link.url %}<a href="{{ card.link.url }}">{% endif %}
           <picture>
             {% image card.image fill-570x370 as img %}
@@ -22,7 +22,7 @@
           {% if card.link.url %}</a>{% endif %}
 
           <p class="card-text">
-            {% if card.link.url %}<a href="{{ card.link.url }}" class="btn btn-link d-inline">{% endif %}
+            {% if card.link.url %}<a href="{{ card.link.url }}" class="btn btn-outline-primary d-inline">{% endif %}
               {{ card.link.link_text }}
             {% if card.link.url %}</a>{% endif %}
           </p>
