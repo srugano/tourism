@@ -54,7 +54,7 @@
     </div>
     {% endif %}
     <div class="col-sm-8">
-      <div class="p-3 h-100 {% if self.image_alignment == 'left' %}rounded-right{% else %}rounded-left{% endif %}" style='background-image: url("{% static 'images/grey-pattern.png' %}")'>
+      <div class="p-3 h-100 text-white {% if self.image_alignment == 'left' %}rounded-right{% else %}rounded-left{% endif %}" style='background-image: url("{% static 'images/grey-pattern.png' %}")'>
         <h3 class="cc-iat-title">{{ self.title }}</h3>
         {% if self.text %}
           <p class="cc-iat-text">
